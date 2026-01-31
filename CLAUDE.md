@@ -284,3 +284,53 @@ Keep the map aligned with the terrain, or the terrain will be lost.
 <COMMIT>
 git commit 消息中忽略对 L1/L2/L3 协议改动的说明。
 </COMMIT>
+
+---
+
+# iOS 项目架构
+
+## project-guoguo - iOS SwiftUI App
+
+Swift + SwiftUI + XcodeGen
+
+<directory>
+Sources/ - Swift 源码目录
+  ├── project_guoguoApp.swift - App 入口
+  ├── Views/ - 视图层
+  └── Models/ - 数据模型层
+Resources/ - 资源目录
+  ├── Assets.xcassets/ - 资源目录
+  ├── Info.plist - 应用配置
+  └── project-guoguo.entitlements - 权限配置
+pb/ - PocketBase 后端服务
+</directory>
+
+<config>
+project.yml - XcodeGen 配置，iOS 17.0+ 部署目标
+project-guoguo.xcodeproj/ - 生成的 Xcode 项目
+</config>
+
+## 生成命令
+
+```bash
+xcodegen generate    # 生成 .xcodeproj
+open project-guoguo.xcodeproj    # 在 Xcode 中打开
+```
+
+## 项目结构
+
+```
+Sources/
+├── project_guoguoApp.swift    # @main 入口
+└── Views/
+    └── ContentView.swift    # 主视图
+Resources/
+├── Assets.xcassets/
+│   ├── AppIcon.appiconset/
+│   └── Contents.json
+├── Info.plist
+└── project-guoguo.entitlements
+project.yml
+```
+
+[PROTOCOL]: 架构变更时更新此头部，然后检查 CLAUDE.md
